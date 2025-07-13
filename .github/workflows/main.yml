@@ -1,0 +1,19 @@
+name: Publish Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout
+      - name: Publish to registy
+        uses: elgohr/Publish-Docker-Github-Action@main
+        with:
+          registry: docker.pkg.github.com
+          name: docker.pkg.github.com/leagermaxl/nest-top-api/nest-top-api
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tags: 'develop'
