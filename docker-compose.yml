@@ -16,7 +16,7 @@ services:
       - app-network
 
   top.api:
-    image: top-api:latest
+    image: docker pull ghcr.io/leagermaxl/nest-top-api/top-api:latest
     container_name: top-api
     restart: always
     ports:
